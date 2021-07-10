@@ -35,7 +35,7 @@ export default {
 .container-fluid {
   padding: 0;
   background-color: $green;
-  height: 100vh;
+  height: 100%;
   .container {
     height: 100%;
   }
