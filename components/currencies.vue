@@ -3,17 +3,13 @@
     fluid
   >
     <b-row>
-      <h1>
-        <nuxt-link to="/">
-          HOME
-        </nuxt-link>
-      </h1>
       <ul>
         <li
           v-for="currency in currencies"
           :key="currency.rate"
         >
-          {{ currency }}
+          {{ currency.txt }}
+          {{ currency.cc }}
         </li>
       </ul>
     </b-row>
@@ -38,5 +34,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

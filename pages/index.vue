@@ -6,6 +6,7 @@
 import mainPage from '~/components/main.vue';
 
 export default {
+  name: 'MainPage',
   components: {
     mainPage,
   },
