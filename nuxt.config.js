@@ -1,8 +1,5 @@
 export default {
   target: 'static',
-  // router: {
-  //   base: '/Nimble/',
-  // },
   head: {
     title: 'currency',
     meta: [

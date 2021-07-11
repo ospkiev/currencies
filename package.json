@@ -53,5 +53,5 @@
     "sass-loader": "^7.1.0",
     "vue-jest": "^3.0.3"
   },
-  "homepage": "https://ospkiev.github.io/Nimble/"
+  "homepage": "https://ospkiev.github.io/currencies/"
 }
