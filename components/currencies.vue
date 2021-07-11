@@ -42,6 +42,22 @@
             <b-form-text>{{ toggle ? selectedCurrency.cc.toLowerCase() : 'грн' }}</b-form-text>
           </div>
         </div>
+        <div class="save">
+          <b-button @click="saveCurrency">
+            Сохранить курс
+          </b-button>
+        </div>
+        <ul class="saved">
+          <li
+            v-for="(savedCurrency, index) in savedCurrencyList"
+            :key="index"
+          >
+            {{ savedCurrency.cc }}
+            курс-
+            {{ savedCurrency.rate }} /
+            {{ savedCurrency.date }}
+          </li>
+        </ul>
       </b-col>
       <b-col
         class="currencies-list"
@@ -74,6 +90,7 @@ export default {
     output: 0,
     selectedCurrency: null,
     toggle: false,
+    savedCurrencyList: [],
   }),
   computed: {
     ...mapState({
@@ -94,6 +111,9 @@ export default {
   created() {
     this.initialValue();
   },
+  mounted() {
+    this.savedCurrencyList = JSON.parse(localStorage.getItem('savedCurrencyList')) || [];
+  },
   methods: {
     initialValue() {
       this.selectedCurrency = this.currencies.find(el => el.cc.toLowerCase() === 'usd');
@@ -104,6 +124,11 @@ export default {
         return;
       }
       this.output = this.sum * this.selectedCurrency.rate;
+    },
+    saveCurrency() {
+      const date = new Date().toString().substring(4, 25);
+      this.savedCurrencyList.push({ ...this.selectedCurrency, date });
+      localStorage.setItem('savedCurrencyList', JSON.stringify(this.savedCurrencyList));
     },
   },
 };
@@ -143,6 +168,15 @@ export default {
     display: flex;
     justify-content: flex-end;
   }
+}
+
+.save {
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul.saved {
+  height: 30%;
 }
 
 .active {
