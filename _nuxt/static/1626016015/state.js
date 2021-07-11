@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fcurrencies\u002F_nuxt\u002Fstatic\u002F1626016015",layout:"default",error:a,state:{currencies:{currencies:[]}},serverRendered:true,routePath:"\u002F",config:{_app:{basePath:"\u002Fcurrencies\u002F",assetsPath:"\u002Fcurrencies\u002F_nuxt\u002F",cdnURL:a}}}}(null));
