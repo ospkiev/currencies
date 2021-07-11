@@ -49,12 +49,12 @@ header {
   justify-content: space-between;
   align-items: center;
   color: $white;
+  a:hover {
+    text-decoration: none;
+  }
   h1 {
     color: $white;
     cursor: pointer;
-    a:hover {
-      text-decoration: none;
-    }
   }
   ul {
     display: flex;

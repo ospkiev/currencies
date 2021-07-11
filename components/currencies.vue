@@ -132,6 +132,11 @@ export default {
     li {
       padding: 5px 0;
       cursor: pointer;
+      padding: 8px;
+      border-radius: 4px;
+      &:hover {
+        background-color: #edf1f5;
+      }
     }
   }
   .currencies-list {
