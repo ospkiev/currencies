@@ -4,12 +4,12 @@
       <main>
         <b-row>
           <h2>
-            Wellcome to Kit Group!
+            Добро пожаловать в КИТ Group!
           </h2>
           <div>
             <nuxt-link to="/currencies">
               <h3>
-                Get current currencies
+                Получить актуальные курсы валют
               </h3>
               <i
                 class="fa fa-arrow-right fa-2x"
@@ -34,8 +34,8 @@ export default {
 
 .container-fluid {
   padding: 0;
-  background-color: $green;
-  height: 100%;
+  background-color: $green-light;
+  height: calc(100vh - 100px);
   .container {
     height: 100%;
   }

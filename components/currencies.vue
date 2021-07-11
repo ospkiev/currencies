@@ -1,11 +1,12 @@
 <template lang="html">
-  <b-container
-    fluid
-  >
+  <b-container>
     <b-row>
-      <b-col>
+      <b-col
+        cols="12"
+        md="6"
+      >
         <h4 class="title">
-          Current currencies
+          Текущий курс
         </h4>
         <div class="sum-inputs">
           <div>
@@ -17,12 +18,14 @@
               class="sum"
             />
             <b-form-text>
-              1 {{ selectedCurrency.cc.toLowerCase() }} =
-              {{ selectedCurrency.rate.toFixed(2) }}
-              грн
+              1 {{ toggle ? 'грн' : selectedCurrency.cc.toLowerCase() }} =
+              {{ toggle
+                ? `${1 / selectedCurrency.rate} ${selectedCurrency.cc.toLowerCase()}`
+                : `${selectedCurrency.rate} грн`
+              }}
             </b-form-text>
           </div>
-          <div>
+          <div @click="() => toggle = !toggle">
             <i
               class="fa fa-arrows-h fa-2x"
               aria-hidden="true"
@@ -36,15 +39,20 @@
               type="number"
               class="output"
             />
-            <b-form-text>usd</b-form-text>
+            <b-form-text>{{ toggle ? selectedCurrency.cc.toLowerCase() : 'грн' }}</b-form-text>
           </div>
         </div>
       </b-col>
-      <b-col class="currencies-list">
+      <b-col
+        class="currencies-list"
+        cols="12"
+        md="6"
+      >
         <ul>
           <li
             v-for="currency in currencies"
             :key="currency.rate"
+            :class="{'active' : currency.cc === selectedCurrency.cc}"
             @click="selectedCurrency = currency"
           >
             {{ currency.txt }}
@@ -65,6 +73,7 @@ export default {
     sum: 1,
     output: 0,
     selectedCurrency: null,
+    toggle: false,
   }),
   computed: {
     ...mapState({
@@ -73,21 +82,35 @@ export default {
   },
   watch: {
     sum() {
-      this.output = (this.sum * this.selectedCurrency.rate).toFixed(2);
+      this.convertation();
+    },
+    selectedCurrency() {
+      this.convertation();
+    },
+    toggle() {
+      this.convertation();
     },
   },
   created() {
-    this.initialValues();
+    this.initialValue();
   },
   methods: {
-    initialValues() {
-      this.selectedCurrency = this.currencies.find(el => el.cc.toLowerCase() === 'usd') || 0;
+    initialValue() {
+      this.selectedCurrency = this.currencies.find(el => el.cc.toLowerCase() === 'usd');
+    },
+    convertation() {
+      if (this.toggle) {
+        this.output = this.sum / this.selectedCurrency.rate;
+        return;
+      }
+      this.output = this.sum * this.selectedCurrency.rate;
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import '~/style/vars.scss';
 
 .row {
   .title {
@@ -103,8 +126,9 @@ export default {
     }
   }
   ul {
-    height: 70%;
     overflow-y: scroll;
+    height: 85vh;
+    margin-top: 20px;
     li {
       padding: 5px 0;
       cursor: pointer;
@@ -114,5 +138,9 @@ export default {
     display: flex;
     justify-content: flex-end;
   }
+}
+
+.active {
+  color: $red;
 }
 </style>

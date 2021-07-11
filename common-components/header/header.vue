@@ -24,6 +24,10 @@
             </li>
             <li>
               Sign In
+              <i
+                class="fa fa-user-o"
+                aria-hidden="true"
+              />
             </li>
           </ul>
         </nav>
@@ -52,6 +56,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: $white;
   h1 {
     cursor: pointer;
   }
