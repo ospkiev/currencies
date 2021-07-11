@@ -127,7 +127,7 @@ export default {
   }
   ul {
     overflow-y: scroll;
-    height: 85vh;
+    height: calc(85vh - 20px);
     margin-top: 20px;
     li {
       padding: 5px 0;
