@@ -4,7 +4,7 @@
       <main>
         <b-row>
           <h2>
-            Добро пожаловать в КИТ Group!
+            Добро пожаловать в Обменник!
           </h2>
           <div>
             <nuxt-link to="/currencies">

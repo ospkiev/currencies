@@ -29,6 +29,7 @@ export default {
   router: {
     linkActiveClass: 'active-link',
     mode: 'history',
+    base: '/currencies/',
   },
   /*
   ** Nuxt.js dev-modules

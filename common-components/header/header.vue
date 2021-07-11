@@ -5,29 +5,21 @@
   >
     <b-container>
       <header>
-        <h1>
-          <nuxt-link to="/">
-            <img
-              src="https://obmenka24.kiev.ua/content/sites/site-42.png"
-              alt="img"
-              width="150px"
-            >
-          </nuxt-link>
-        </h1>
+        <nuxt-link to="/">
+          <h1>
+            Обменник
+          </h1>
+        </nuxt-link>
         <nav>
           <ul>
             <li>
-              About Us
+              Онас
             </li>
             <li>
-              Contacts
+              Контакты
             </li>
             <li>
-              Sign In
-              <i
-                class="fa fa-user-o"
-                aria-hidden="true"
-              />
+              Вход/Регистрация
             </li>
           </ul>
         </nav>
@@ -58,7 +50,11 @@ header {
   align-items: center;
   color: $white;
   h1 {
+    color: $white;
     cursor: pointer;
+    a:hover {
+      text-decoration: none;
+    }
   }
   ul {
     display: flex;
