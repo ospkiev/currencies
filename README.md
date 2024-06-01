@@ -12,3 +12,6 @@ npm run lintfix
 
 Customize configuration
 See Configuration Reference.
+
+Try
+https://ospkiev.github.io/currencies/
